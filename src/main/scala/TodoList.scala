@@ -1,7 +1,6 @@
 import java.io.{FileInputStream, FileOutputStream, ObjectInputStream, ObjectOutputStream}
 import java.nio.file.{Files, Paths}
 import java.time.LocalDateTime
-import java.util.Date
 import scala.collection.mutable.ListBuffer
 import scala.jdk.CollectionConverters.*
 /*
@@ -84,7 +83,7 @@ object TodoList {
     todoList.find(x => x.getId == id) match
       case Some(task) => 
         task.setFinished()
-      case _ => throw new IllegalArgumentException(s"Unable to find task with id: ${id}")
+      case _ => throw new IllegalArgumentException(s"Unable to find task with id: $id")
   }
 
   /**
@@ -95,7 +94,7 @@ object TodoList {
   def deleteTask(id: Int): Unit = {
     todoList.find(x => x.getId == id) match
       case Some(task) => todoList -= task
-      case _ => throw new IllegalArgumentException(s"Unable to find task with id: ${id}")
+      case _ => throw new IllegalArgumentException(s"Unable to find task with id: $id")
   }
 
   /**
@@ -103,13 +102,13 @@ object TodoList {
    * @param name replaces the current name of the task
    * @param priority replaces the current priority of the task
    * @param id id to lookup for the task
-   * @throws IllegalArgumentException If it does not find the task by the provided Id
+   * @throws IllegalArgumentException If it does not find the task by the provided ID
    */
   def modifyTask(name: String, priority: Int, id: Int): Unit = {
     todoList.find(x => x.getId == id) match
       case Some(task) =>
         task.setName(name).setPriority(priority)
-      case _ => throw new IllegalArgumentException(s"Unable to find task with id: ${id}")
+      case _ => throw new IllegalArgumentException(s"Unable to find task with id: $id")
   }
 
 
