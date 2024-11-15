@@ -80,9 +80,10 @@ object TodoList {
    * @param id Task id to search
    * @throws IllegalArgumentException If it does not find the task by the provided id
    */
-  def finishTask(id: Int): Unit = {
+  def finishTask(id: Int): Task = {
     todoList.find(x => x.getId == id) match
-      case Some(task) => task.setFinished()
+      case Some(task) => 
+        task.setFinished()
       case _ => throw new IllegalArgumentException(s"Unable to find task with id: ${id}")
   }
 
@@ -153,7 +154,6 @@ object TodoList {
 
 
   def main(args: Array[String]): Unit = {
-
-
+    
   }
 }

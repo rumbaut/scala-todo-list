@@ -3,3 +3,4 @@
 /target/
 /target/scala-3.3.4/classes/
 /target/scala-3.3.4/test-classes/
+*.sc.todo
